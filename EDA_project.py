@@ -49,3 +49,8 @@ plt.figure(figsize=(10,8))
 sns.heatmap(correlation,annot=True,cmap='coolwarm',fmt='.2f')
 plt.title('Correlation Heatmap')
 plt.show()
+
+print("Find  the Outies in age")
+outliers=df[df['Age']>100]
+print("Found Outlires(s):")
+print(outliers)
