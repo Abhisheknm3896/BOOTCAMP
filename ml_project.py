@@ -29,19 +29,19 @@ def main():  # Define the main function to run the process
     df=pd.read_csv(file_path)  # Read the CSV file into a table (DataFrame)
     print(f"Dataset Loaded Sucessfully.Rows:{df.shape[0]},Features:{df.shape[1]}\n")  # Print row and column count
 
-    print("HANDLING MISSING DATA")
-    print("Artificially deleting some 'Hits' (H) data to demonstrate")
+    print("HANDLING MISSING DATA")  # Print header for the data cleaning section
+    print("Artificially deleting some 'Hits' (H) data to demonstrate")  # Print description of the demonstration
 
-    df.loc[0.25, 'H'] = np.nan
-    imputer = SimpleImputer(strategy='median')
-    df['H'] = imputer.fit_transform(df[['H']])
-    print("Imputation completed 'Hits' (H)")
+    df.loc[0.25, 'H'] = np.nan  # Artificially set the value in column 'H' for row index 0.25 to missing (NaN)
+    imputer = SimpleImputer(strategy='median')  # Create an imputer tool to fill missing values using the median
+    df['H'] = imputer.fit_transform(df[['H']])  # Replace any missing values in 'H' with the calculated median
+    print("Imputation completed 'Hits' (H)")  # Print confirmation that the missing data is filled
 
-    print(df.head())
-    print(df.tail())
+    print(df.head())  # Print the first 5 rows of the data to verify results
+    print(df.tail())  # Print the last 5 rows of the data to verify results
 
-    print("\nBasic Statistics:")
-    print(df.describe())
+    print("\nBasic Statistics:")  # Print header for the statistical summary
+    print(df.describe())  # Print summary statistics (like mean, median, min, max) for numeric columns
 
 if __name__ == "__main__":  # Check if this script is being run directly
     main()  # Run the main function
